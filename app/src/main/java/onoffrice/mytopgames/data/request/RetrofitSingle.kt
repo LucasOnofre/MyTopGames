@@ -1,0 +1,33 @@
+package onoffrice.mytopgames.data.request
+
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import onoffrice.mytopgames.BuildConfig
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object RetrofitSingle{
+
+    /**
+     * Singleton to instanciate the Retrofit in all the application
+     */
+
+    fun <S> createService(serviceClass: Class<S>, interceptors: List<Interceptor>? = null, url: String): S {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create())
+
+        val httpClient = OkHttpClient.Builder()
+        httpClient.addInterceptor(HttpLoggingInterceptor()
+            .setLevel(if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE))
+
+        interceptors?.let {
+            for (interceptor in interceptors) {
+                httpClient.addInterceptor(interceptor)
+            }
+        }
+        retrofit.client(httpClient.build())
+        return retrofit.build().create(serviceClass)
+    }
+}

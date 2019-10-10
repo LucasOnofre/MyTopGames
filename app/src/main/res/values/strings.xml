@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyTopGames</string>
+    <string name="poster_game_title">Titulo</string>
 </resources>

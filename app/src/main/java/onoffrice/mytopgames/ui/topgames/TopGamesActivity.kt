@@ -1,13 +1,8 @@
 package onoffrice.mytopgames.ui.topgames
 
-import android.graphics.Rect
 import android.os.Bundle
-import android.util.TypedValue
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_top_games.*
 import onoffrice.mytopgames.data.models.Game
 import onoffrice.mytopgames.data.models.TopGamesList

@@ -8,7 +8,7 @@ interface TopGamesContract {
     interface View : BaseView<Presenter> {
         fun displayLoading(loading: Boolean)
         fun displayError(message: String?)
-        fun setTopGames(it: TopGamesList)
+        fun setTopGames(topGamesResponse: TopGamesList)
     }
 
     interface Presenter : BasePresenter<View> {

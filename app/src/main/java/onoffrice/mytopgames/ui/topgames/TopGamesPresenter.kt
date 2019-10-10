@@ -13,17 +13,18 @@ class TopGamesPresenter : TopGamesContract.Presenter {
     private lateinit var disposable: CompositeDisposable
 
     override fun attachView(mvpView: TopGamesContract.View?) {
-        view = mvpView
+        view       = mvpView
+        disposable = CompositeDisposable()
     }
 
     override fun getTopGames() {
         view?.displayLoading(true)
         disposable.add(gamesDataSource.getTopGames().singleSubscribe(
             onSuccess = {
-
+                view?.setTopGames(it)
             },
             onError = { e, retrofitError ->
-
+                view?.displayError(e.message)
             }
         ))
     }

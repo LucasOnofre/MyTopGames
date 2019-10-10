@@ -7,7 +7,7 @@ import retrofit2.http.GET
 interface GamesService {
 
     @GET("top")
-    fun getTopGames(): Single<List<TopGamesList>>
+    fun getTopGames(): Single<TopGamesList>
 
 
 }

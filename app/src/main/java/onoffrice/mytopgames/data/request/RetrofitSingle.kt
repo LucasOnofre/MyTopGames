@@ -5,6 +5,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import onoffrice.mytopgames.BuildConfig
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitSingle{
@@ -16,6 +17,7 @@ object RetrofitSingle{
     fun <S> createService(serviceClass: Class<S>, interceptors: List<Interceptor>? = null, url: String): S {
         val retrofit = Retrofit.Builder()
             .baseUrl(url)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
 
         val httpClient = OkHttpClient.Builder()

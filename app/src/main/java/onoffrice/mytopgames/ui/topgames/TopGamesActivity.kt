@@ -33,9 +33,9 @@ class TopGamesActivity : AppCompatActivity(), TopGamesContract.View{
             }
         })
 
-        val layoutManager = GridLayoutManager(this, 2)
+        val layoutManager        = GridLayoutManager(this, 2)
         topGamesRv.layoutManager = layoutManager
-        topGamesRv.adapter = adapter
+        topGamesRv.adapter       = adapter
         adapter
     }
 
@@ -73,13 +73,10 @@ class TopGamesActivity : AppCompatActivity(), TopGamesContract.View{
         }
     }
 
-    /**
-     * Make's new requests when user scrolls the list to the last item
-     */
+    /** Make's new requests when user scrolls the list to the last item */
     private fun setInfiniteScroll() {
         var isLoading: Boolean = false
         topGamesRv?.addOnScrollListener(object: RecyclerView.OnScrollListener() {
-
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
 

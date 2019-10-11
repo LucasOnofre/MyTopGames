@@ -1,6 +1,7 @@
 package onoffrice.mytopgames.ui.topgames
 
 import io.reactivex.disposables.CompositeDisposable
+import onoffrice.mytopgames.data.local.PreferencesHelper
 import onoffrice.mytopgames.data.remote.TopGamesContract
 import onoffrice.mytopgames.data.remote.datasource.GamesDataSource
 import onoffrice.mytopgames.utils.extension.singleSubscribe
@@ -18,18 +19,41 @@ class TopGamesPresenter : TopGamesContract.Presenter {
         disposable = CompositeDisposable()
     }
 
-    override fun getTopGames(page: Int) {
-        view?.displayLoading(true)
-        disposable.add(gamesDataSource.getTopGames(page).singleSubscribe(
-            onSuccess = {
-                view?.displayLoading(false)
-                view?.setTopGames(it)
-            },
-            onError = { e, retrofitError ->
-                view?.displayLoading(false)
-                view?.displayError(e.message)
+    override fun getTopGames(page: Int, hasNetworkConnection: Boolean) {
+
+        if (hasNetworkConnection) {
+            view?.displayLoading(true)
+            disposable.add(gamesDataSource.getTopGames(page).singleSubscribe(
+                onSuccess = {
+                    PreferencesHelper.games = it
+                    view?.displayLoading(false)
+                    view?.setTopGames(it)
+                },
+                onError = {
+                    view?.displayLoading(false)
+                    view?.displayError(it.message)
+                }
+            ))
+        } else {
+            showPreviousResult()
+            handleNetworkError()
+        }
+    }
+
+    private fun handleNetworkError() {
+        view?.displayLoading(false)
+        if (PreferencesHelper.isOnline) {
+            view?.displayError("Sem internet")
+            PreferencesHelper.isOnline = false
+        }
+    }
+
+    private fun showPreviousResult() {
+        PreferencesHelper.games?.let {
+            if (it.top?.isNullOrEmpty() == false) {
+                view?.setTopGames(it, true)
             }
-        ))
+        }
     }
 
     override fun detachView() {

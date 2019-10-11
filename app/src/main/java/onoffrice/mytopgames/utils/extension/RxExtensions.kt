@@ -9,9 +9,8 @@ import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
-import onoffrice.mytopgames.data.request.services.handlers.RetrofitException
 
-fun <T> Single<T>.singleSubscribe(onSuccess: ((t: T) -> Unit)? = null, onError: ((e: Throwable, retrofitError: RetrofitException?) -> Unit)? = null, subscribeOnScheduler: Scheduler? = Schedulers.io(), observeOnScheduler: Scheduler? = AndroidSchedulers.mainThread()) =
+fun <T> Single<T>.singleSubscribe(onSuccess: ((t: T) -> Unit)? = null, onError: ((e: Throwable) -> Unit)? = null, subscribeOnScheduler: Scheduler? = Schedulers.io(), observeOnScheduler: Scheduler? = AndroidSchedulers.mainThread()) =
         this.subscribeOn(subscribeOnScheduler)
                 .observeOn(observeOnScheduler)
                 .subscribeWith(object : DisposableSingleObserver<T>() {
@@ -22,11 +21,7 @@ fun <T> Single<T>.singleSubscribe(onSuccess: ((t: T) -> Unit)? = null, onError: 
                     override fun onError(exception: Throwable) {
 
                         onError?.let {
-                            if(exception is RetrofitException) {
-                                it(exception, exception)
-                            } else {
-                                it(exception, null)
-                            }
+                            it(exception)
                         }
                     }
                 })

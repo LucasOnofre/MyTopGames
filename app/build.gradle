@@ -54,6 +54,9 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$ankoVersion"
     implementation "androidx.core:core-ktx:$ktxVersion"
 
+    //MultiDex
+    implementation 'com.android.support:multidex:1.0.3'
+
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 }

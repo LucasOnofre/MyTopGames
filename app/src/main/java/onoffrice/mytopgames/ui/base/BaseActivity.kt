@@ -5,6 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import onoffrice.mytopgames.R
+import android.net.ConnectivityManager
+
+
 
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -33,6 +36,13 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    fun isNetworkAvailable(): Boolean {
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo != null
     }
 
 }

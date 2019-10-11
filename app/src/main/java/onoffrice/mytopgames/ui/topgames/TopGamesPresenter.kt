@@ -7,6 +7,7 @@ import onoffrice.mytopgames.utils.extension.singleSubscribe
 
 class TopGamesPresenter : TopGamesContract.Presenter {
 
+
     private var view: TopGamesContract.View?    = null
     private var gamesDataSource = GamesDataSource
 
@@ -17,13 +18,15 @@ class TopGamesPresenter : TopGamesContract.Presenter {
         disposable = CompositeDisposable()
     }
 
-    override fun getTopGames() {
+    override fun getTopGames(page: Int) {
         view?.displayLoading(true)
-        disposable.add(gamesDataSource.getTopGames().singleSubscribe(
+        disposable.add(gamesDataSource.getTopGames(page).singleSubscribe(
             onSuccess = {
+                view?.displayLoading(false)
                 view?.setTopGames(it)
             },
             onError = { e, retrofitError ->
+                view?.displayLoading(false)
                 view?.displayError(e.message)
             }
         ))

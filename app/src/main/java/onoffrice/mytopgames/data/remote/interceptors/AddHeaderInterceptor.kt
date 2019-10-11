@@ -2,14 +2,15 @@ package onoffrice.mytopgames.data.remote.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.Response
+import onoffrice.mytopgames.BuildConfig
 import onoffrice.mytopgames.data.models.RequestHeaderInterceptor
 import java.io.IOException
 
 class AddHeaderInterceptor : Interceptor {
     private val REQUEST_HEADER_AUTHENTICATION =
         listOf(
-            RequestHeaderInterceptor("Client-ID", "xmhij3gr6k55dw07e87yvxl1v8pkda"),
-            RequestHeaderInterceptor("Accept", "application/vnd.twitchtv.v5+json"))
+            RequestHeaderInterceptor("Client-ID", BuildConfig.CLIENT_ID_HEADER),
+            RequestHeaderInterceptor("Accept", BuildConfig.API_VERSION_JSON_HEADER))
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {

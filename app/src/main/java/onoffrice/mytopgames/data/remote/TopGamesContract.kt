@@ -12,6 +12,6 @@ interface TopGamesContract {
     }
 
     interface Presenter : BasePresenter<View> {
-       fun getTopGames()
+       fun getTopGames(page: Int)
     }
 }

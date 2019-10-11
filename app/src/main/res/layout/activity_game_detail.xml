@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/common_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/gamePosterLayout"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_white_stroke_rounded"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        card_view:cardCornerRadius="@dimen/card_album_radius">
+
+        <ImageView
+            android:id="@+id/gamePoster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@color/design_default_color_error" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/gameDetailName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Nome"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/gamePosterLayout"
+        app:layout_constraintTop_toTopOf="@+id/gamePosterLayout" />
+
+    <TextView
+        android:id="@+id/gameChannelsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Canais: "
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/gameDetailName"
+        app:layout_constraintTop_toBottomOf="@+id/gameDetailName" />
+
+    <TextView
+        android:id="@+id/gameChannelsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="123456"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/gameChannelsTitle"
+        app:layout_constraintTop_toBottomOf="@+id/gameDetailName" />
+
+    <TextView
+        android:id="@+id/gameViewsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Visualizações: "
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/gameChannelsTitle"
+        app:layout_constraintTop_toBottomOf="@+id/gameChannelsTitle" />
+
+    <TextView
+        android:id="@+id/gameViewsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123456"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/gameViewsTitle"
+        app:layout_constraintTop_toTopOf="@+id/gameViewsTitle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    &lt;!&ndash;Imagem do filme&ndash;&gt;-->
+<!--<ImageView-->
+<!--android:id="@+id/gamePoster"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"Z-->
+<!--android:adjustViewBounds="true"-->
+<!--app:layout_collapseMode="parallax"-->
+<!--app:layout_collapseParallaxMultiplier="0.7" />-->
+
+<!--    &lt;!&ndash;Imagem do filme&ndash;&gt;-->
+<!--<View-->
+<!--android:id="@+id/movieBannerGradient"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:background="@drawable/image_bottom_gradient"-->
+<!--app:layout_collapseMode="parallax"-->
+<!--app:layout_collapseParallaxMultiplier="0.7" />-->
+
+<!--<androidx.appcompat.widget.Toolbar-->
+<!--android:id="@+id/common_toolbar"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="?attr/actionBarSize"-->
+<!--app:layout_collapseMode="pin"-->
+<!--app:titleTextAppearance="@style/collapsed_title_style"-->
+<!--android:elevation="4dp"/>-->
+
+

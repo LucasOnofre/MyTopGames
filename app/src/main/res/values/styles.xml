@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="collapsed_title_style" parent="android:Theme.Holo">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="expanded_title_style" parent="android:Theme.Holo">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

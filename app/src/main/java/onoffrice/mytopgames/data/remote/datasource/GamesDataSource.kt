@@ -14,6 +14,6 @@ object GamesDataSource {
         interceptors = listOf(AddHeaderInterceptor())
     )
 
-    fun getTopGames() = service.getTopGames()
+    fun getTopGames(page: Int) = service.getTopGames(page)
 
 }

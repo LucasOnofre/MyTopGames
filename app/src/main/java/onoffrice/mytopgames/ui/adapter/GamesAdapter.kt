@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.adapter_movie_item.view.*
 import onoffrice.mytopgames.R
 import onoffrice.mytopgames.data.models.Top
-import onoffrice.mytopgames.utils.extension.fadeUpItemListAnimation
 import onoffrice.mytopgames.utils.extension.loadPicasso
 
 

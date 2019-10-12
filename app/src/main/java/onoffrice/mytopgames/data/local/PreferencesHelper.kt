@@ -16,8 +16,8 @@ object PreferencesHelper {
 
     private const val SHARED_PREFERENCES_NAME = "$PACKAGE_NAME.SHARED_PREFERENCES"
 
-    private const val PREF_BANNERS = "$SHARED_PREFERENCES_NAME.PREF_BANNERS"
-    private const val PREF_IS_ONLINE = "$SHARED_PREFERENCES_NAME.PREF_IS_ONLINE"
+    private const val PREF_BANNERS      = "$SHARED_PREFERENCES_NAME.PREF_BANNERS"
+    private const val PREF_IS_ONLINE    = "$SHARED_PREFERENCES_NAME.PREF_IS_ONLINE"
     private const val PREF_FIRST_ACCESS = "$SHARED_PREFERENCES_NAME.PREF_FIRST_ACCESS"
 
 
@@ -29,11 +29,7 @@ object PreferencesHelper {
     var games: TopGamesList?
         get() {
             val userJson = sharedPreferences.getString(PREF_BANNERS, "")
-            val result = Gson().fromJson(userJson, TopGamesList::class.java)
-            if(result == null) {
-                return TopGamesList()
-            }
-            return result
+            return Gson().fromJson(userJson, TopGamesList::class.java) ?: return TopGamesList()
         }
         set(value) {
             val banners = value ?: TopGamesList()
@@ -43,7 +39,7 @@ object PreferencesHelper {
         }
 
     var isFirstAccess: Boolean
-        get() = sharedPreferences.getBoolean(PREF_FIRST_ACCESS, true)
+        get()      = sharedPreferences.getBoolean(PREF_FIRST_ACCESS, true)
         set(value) = sharedPreferences.edit().putBoolean(PREF_FIRST_ACCESS, value).apply()
 
 

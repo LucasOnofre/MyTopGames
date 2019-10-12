@@ -18,7 +18,6 @@ object PreferencesHelper {
 
     private const val PREF_BANNERS      = "$SHARED_PREFERENCES_NAME.PREF_BANNERS"
     private const val PREF_IS_ONLINE    = "$SHARED_PREFERENCES_NAME.PREF_IS_ONLINE"
-    private const val PREF_FIRST_ACCESS = "$SHARED_PREFERENCES_NAME.PREF_FIRST_ACCESS"
 
 
     var isOnline: Boolean
@@ -37,13 +36,4 @@ object PreferencesHelper {
             sharedPreferences.edit().putString(PREF_BANNERS, json).apply()
             isOnline = true
         }
-
-    var isFirstAccess: Boolean
-        get()      = sharedPreferences.getBoolean(PREF_FIRST_ACCESS, true)
-        set(value) = sharedPreferences.edit().putBoolean(PREF_FIRST_ACCESS, value).apply()
-
-
-    fun clearSharedPref() {
-        sharedPreferences.edit().clear().apply()
-    }
 }

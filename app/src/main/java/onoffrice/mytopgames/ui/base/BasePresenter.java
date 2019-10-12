@@ -1,6 +1,6 @@
 package onoffrice.mytopgames.ui.base;
 
-public interface BasePresenter<V extends BaseView> {
+public interface BasePresenter<V> {
 
     void attachView(V mvpView);
 

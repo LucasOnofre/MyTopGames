@@ -4,16 +4,15 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_top_games.*
+import onoffrice.mytopgames.R
 import onoffrice.mytopgames.data.models.Top
 import onoffrice.mytopgames.data.models.TopGamesList
-import onoffrice.mytopgames.data.remote.TopGamesContract
 import onoffrice.mytopgames.ui.adapter.GameClickListener
 import onoffrice.mytopgames.ui.adapter.GamesAdapter
 import onoffrice.mytopgames.ui.base.BaseActivity
 import onoffrice.mytopgames.ui.gamedetail.createGameDetailIntent
 import onoffrice.mytopgames.utils.extension.startActivitySlideTransition
 import org.jetbrains.anko.toast
-
 
 const val DEFAULT_OFFSET_VALUE = 0
 const val DEFAULT_OFFSET_PAGINATION = 10
@@ -58,26 +57,6 @@ class TopGamesActivity : BaseActivity(), TopGamesContract.View{
         setInfiniteScroll()
     }
 
-    override fun displayLoading(loading: Boolean) {
-        swipeRefresh.isRefreshing = loading
-    }
-
-    override fun displayError(message: String?) {
-        toast(message ?:"" )
-    }
-
-    override fun setTopGames(topGamesResponse: TopGamesList, isOffline: Boolean?) {
-        topGamesResponse.top?.let {
-            if (gamesAdapter.list.isEmpty() || isOffline == true) {
-                gamesAdapter.list = it.toMutableList()
-            }
-            else {
-                gamesAdapter.list.addAll(it)
-                gamesAdapter.notifyDataSetChanged()
-            }
-        }
-    }
-
     /** Make's new requests when user scrolls the list to the last item */
     private fun setInfiniteScroll() {
         topGamesRv?.addOnScrollListener(object: RecyclerView.OnScrollListener() {
@@ -93,6 +72,26 @@ class TopGamesActivity : BaseActivity(), TopGamesContract.View{
                 }
             }
         })
+    }
+
+    override fun setTopGames(topGamesResponse: TopGamesList, isOffline: Boolean?) {
+        topGamesResponse.top?.let {
+            if (gamesAdapter.list.isEmpty() || isOffline == true || offset == DEFAULT_OFFSET_VALUE) {
+                gamesAdapter.list = it.toMutableList()
+            }
+            else {
+                gamesAdapter.list.addAll(it)
+                gamesAdapter.notifyDataSetChanged()
+            }
+        }
+    }
+
+    override fun displayLoading(loading: Boolean) {
+        swipeRefresh.isRefreshing = loading
+    }
+
+    override fun displayError(message: String?) {
+        toast(message ?: getString(R.string.common_error) )
     }
 }
 

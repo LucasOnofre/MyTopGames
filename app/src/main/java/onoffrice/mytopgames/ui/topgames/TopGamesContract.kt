@@ -1,11 +1,10 @@
-package onoffrice.mytopgames.data.remote
+package onoffrice.mytopgames.ui.topgames
 
 import onoffrice.mytopgames.data.models.TopGamesList
 import onoffrice.mytopgames.ui.base.BasePresenter
-import onoffrice.mytopgames.ui.base.BaseView
 
 interface TopGamesContract {
-    interface View : BaseView<Presenter> {
+    interface View {
         fun displayLoading(loading: Boolean)
         fun displayError(message: String?)
         fun setTopGames(topGamesResponse: TopGamesList, isOffline: Boolean? = false)

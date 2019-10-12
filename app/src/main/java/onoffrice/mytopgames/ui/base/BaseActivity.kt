@@ -7,17 +7,7 @@ import androidx.appcompat.widget.Toolbar
 import onoffrice.mytopgames.R
 import android.net.ConnectivityManager
 
-
-
-
 abstract class BaseActivity : AppCompatActivity() {
-
-    val context: Context
-        get() = this
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     //TOOLBAR METHODS
     fun setToolbar(title: String, displayHomeAsUpEnabled: Boolean) {
@@ -27,7 +17,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     //ACTION BAR METHODS
-    fun setToolbar(title: String) {
+    private fun setToolbar(title: String) {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         setTitle(title)

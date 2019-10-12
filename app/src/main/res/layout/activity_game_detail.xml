@@ -17,11 +17,12 @@
 
     <LinearLayout
         android:id="@+id/gamePosterLayout"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="@dimen/game_poster_background_width"
+        android:layout_height="@dimen/game_poster_background_height"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/medium_margin"
         android:background="@drawable/bg_white_stroke_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         card_view:cardCornerRadius="@dimen/card_album_radius">
@@ -30,8 +31,8 @@
             android:id="@+id/gamePoster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/medium_padding"
             android:scaleType="fitXY"
-            android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@color/design_default_color_error" />
@@ -39,48 +40,33 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/gameDetailName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Nome"
-        android:textColor="@color/colorBlack"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/gamePosterLayout"
-        app:layout_constraintTop_toTopOf="@+id/gamePosterLayout" />
-
-    <TextView
         android:id="@+id/gameChannelsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/big_margin"
         android:text="Canais: "
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/gameDetailName"
-        app:layout_constraintTop_toBottomOf="@+id/gameDetailName" />
+        app:layout_constraintStart_toStartOf="@+id/gamePosterLayout"
+        app:layout_constraintTop_toBottomOf="@+id/gamePosterLayout" />
 
     <TextView
         android:id="@+id/gameChannelsCount"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/big_margin"
         android:text="123456"
         android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/gameChannelsTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/gameChannelsTitle"
-        app:layout_constraintTop_toBottomOf="@+id/gameDetailName" />
+        app:layout_constraintTop_toTopOf="@+id/gameChannelsTitle" />
 
     <TextView
         android:id="@+id/gameViewsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/big_margin"
         android:text="Visualizações: "
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
@@ -89,15 +75,16 @@
 
     <TextView
         android:id="@+id/gameViewsCount"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/big_margin"
         android:text="123456"
         android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/gameViewsTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/gameViewsTitle"
         app:layout_constraintTop_toTopOf="@+id/gameViewsTitle" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

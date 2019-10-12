@@ -20,7 +20,6 @@ class GameDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_detail)
-        setToolbar("",true)
         setViews()
     }
 
@@ -29,13 +28,14 @@ class GameDetailActivity : BaseActivity() {
         //Gets the top game
         var game = topItem.game ?: Game()
 
-        //Loads the game poster using Picasso
-        game.box?.large?.loadPicasso(gamePoster)
-
         //Sets info
-        gameDetailName.text    = game.name
+        setToolbar(game.name ?: "",true)
+
         gameViewsCount.text    = topItem.viewers?.toString()
         gameChannelsCount.text = topItem.channels?.toString()
+
+        //Loads the game poster using Picasso
+        game.box?.large?.loadPicasso(gamePoster)
     }
 }
 

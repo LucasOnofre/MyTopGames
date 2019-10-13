@@ -29,8 +29,9 @@ class GameDetailActivity : BaseActivity() {
         var game = topItem.game ?: Game()
 
         //Sets info
-        setToolbar(game.name ?: "",true)
+        setToolbar("",true)
 
+        gameName.text    = topItem.game?.name
         gameViewsCount.text    = topItem.viewers?.toString()
         gameChannelsCount.text = topItem.channels?.toString()
 

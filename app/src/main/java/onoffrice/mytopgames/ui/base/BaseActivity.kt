@@ -14,6 +14,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setToolbar(title)
         supportActionBar!!.setDisplayHomeAsUpEnabled(displayHomeAsUpEnabled)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_back)
+
     }
 
     //ACTION BAR METHODS

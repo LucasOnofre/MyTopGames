@@ -14,8 +14,9 @@ import onoffrice.mytopgames.ui.gamedetail.createGameDetailIntent
 import onoffrice.mytopgames.utils.extension.startActivitySlideTransition
 import org.jetbrains.anko.toast
 
-const val DEFAULT_OFFSET_VALUE = 0
+const val DEFAULT_OFFSET_VALUE      = 0
 const val DEFAULT_OFFSET_PAGINATION = 10
+
 class TopGamesActivity : BaseActivity(), TopGamesContract.View{
 
     private var offset = DEFAULT_OFFSET_VALUE
@@ -42,7 +43,7 @@ class TopGamesActivity : BaseActivity(), TopGamesContract.View{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(onoffrice.mytopgames.R.layout.activity_top_games)
+        setContentView(R.layout.activity_top_games)
         setListeners()
         presenter.getTopGames(offset, isNetworkAvailable())
     }

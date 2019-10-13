@@ -1,5 +1,5 @@
 <h1 align="center">MyTopGames!</h1>
-<p align="center">
+<p align="left">
 A simple kotlin app using the MVP pattern to discover your top games
 </p>
 

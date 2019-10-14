@@ -44,6 +44,7 @@ class TopGamesActivity : BaseActivity(), TopGamesContract.View{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top_games)
+        setToolbar(getString(R.string.top_game_toolbar_title),true)
         setListeners()
         presenter.getTopGames(offset, isNetworkAvailable())
     }

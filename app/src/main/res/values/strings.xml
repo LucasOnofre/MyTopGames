@@ -4,4 +4,5 @@
     <string name="game_detail_channels_title_txt">Canais:</string>
     <string name="game_detail_views_title_txt">Visualizações:</string>
     <string name="common_error">Erro inesperado</string>
+    <string name="top_game_toolbar_title">Melhores Jogos</string>
 </resources>

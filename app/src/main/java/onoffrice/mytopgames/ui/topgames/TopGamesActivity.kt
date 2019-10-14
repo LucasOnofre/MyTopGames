@@ -75,12 +75,16 @@ class TopGamesActivity : BaseActivity(), TopGamesContract.View{
         })
     }
 
+    /** Updates the top games list **/
     override fun setTopGames(topGamesResponse: TopGamesList, isOffline: Boolean?) {
         topGamesResponse.top?.let {
+            //If list is empy or user is offline or offset is the initial, overrides the list
+            //usually happens the user pull to refresh
             if (gamesAdapter.list.isEmpty() || isOffline == true || offset == DEFAULT_OFFSET_VALUE) {
                 gamesAdapter.list = it.toMutableList()
             }
             else {
+                //Only adds new items o list, usually whe user scrolls down
                 gamesAdapter.list.addAll(it)
                 gamesAdapter.notifyDataSetChanged()
             }

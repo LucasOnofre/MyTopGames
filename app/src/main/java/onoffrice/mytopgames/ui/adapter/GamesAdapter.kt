@@ -54,6 +54,7 @@ class GamesAdapter (
         }
     }
 
+    /** Loads the game image using Picasso **/
     private fun setPosterPath(topItem: Top, holder: GameViewHolderItem) {
         val url = topItem.game?.box?.large
         url?.loadPicasso(holder.poster)

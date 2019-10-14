@@ -40,6 +40,7 @@ class TopGamesPresenter : TopGamesContract.Presenter {
         }
     }
 
+    /** Shows error and saves that user is offline **/
     private fun handleNetworkError() {
         view?.displayLoading(false)
         if (PreferencesHelper.isOnline) {
@@ -48,6 +49,7 @@ class TopGamesPresenter : TopGamesContract.Presenter {
         }
     }
 
+    /** Shows last cashed response, if has**/
     private fun showPreviousResult() {
         PreferencesHelper.games?.let {
             if (it.top?.isNullOrEmpty() == false) {

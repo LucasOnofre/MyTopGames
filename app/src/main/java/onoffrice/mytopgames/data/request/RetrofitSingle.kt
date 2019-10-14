@@ -11,7 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitSingle{
 
     /** Singleton to instanciate the Retrofit in all the application **/
-
     fun <S> createService(serviceClass: Class<S>, interceptors: List<Interceptor>? = null, url: String): S {
         val retrofit = Retrofit.Builder()
             .baseUrl(url)

@@ -16,8 +16,8 @@ object PreferencesHelper {
 
     private const val SHARED_PREFERENCES_NAME = "$PACKAGE_NAME.SHARED_PREFERENCES"
 
-    private const val PREF_BANNERS      = "$SHARED_PREFERENCES_NAME.PREF_BANNERS"
-    private const val PREF_IS_ONLINE    = "$SHARED_PREFERENCES_NAME.PREF_IS_ONLINE"
+    private const val PREF_BANNERS   = "$SHARED_PREFERENCES_NAME.PREF_BANNERS"
+    private const val PREF_IS_ONLINE = "$SHARED_PREFERENCES_NAME.PREF_IS_ONLINE"
 
 
     var isOnline: Boolean
@@ -25,6 +25,7 @@ object PreferencesHelper {
         set(value) = sharedPreferences.edit().putBoolean(PREF_IS_ONLINE, value).apply()
 
 
+    /** Saves the last top games response **/
     var games: TopGamesList?
         get() {
             val userJson = sharedPreferences.getString(PREF_BANNERS, "")

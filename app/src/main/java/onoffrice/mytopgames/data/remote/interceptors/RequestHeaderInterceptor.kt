@@ -1,4 +1,4 @@
-package onoffrice.mytopgames.data.models
+package onoffrice.mytopgames.data.remote.interceptors
 
 data class RequestHeaderInterceptor (
     val name: String,

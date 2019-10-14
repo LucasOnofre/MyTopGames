@@ -1,17 +1,21 @@
 package onoffrice.mytopgames.ui.topgames
 
+import android.content.Context
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_top_games.*
+import onoffrice.mytopgames.Constants
 import onoffrice.mytopgames.R
 import onoffrice.mytopgames.data.models.Top
 import onoffrice.mytopgames.data.models.TopGamesList
 import onoffrice.mytopgames.ui.adapter.GameClickListener
 import onoffrice.mytopgames.ui.adapter.GamesAdapter
 import onoffrice.mytopgames.ui.base.BaseActivity
+import onoffrice.mytopgames.ui.gamedetail.GameDetailActivity
 import onoffrice.mytopgames.ui.gamedetail.createGameDetailIntent
 import onoffrice.mytopgames.utils.extension.startActivitySlideTransition
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 
 const val DEFAULT_OFFSET_VALUE      = 0
@@ -100,4 +104,6 @@ class TopGamesActivity : BaseActivity(), TopGamesContract.View{
         toast(message ?: getString(R.string.common_error) )
     }
 }
+
+fun Context.createTopGamesIntent() = intentFor<TopGamesActivity>()
 

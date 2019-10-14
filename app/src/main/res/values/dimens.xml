@@ -13,5 +13,6 @@
     <dimen name="game_poster_background_height">300dp</dimen>
     <dimen name="game_info_text_size">20dp</dimen>
     <dimen name="game_name_text_size">28dp</dimen>
+    <dimen name="splash_title_size">30sp</dimen>
 
 </resources>
